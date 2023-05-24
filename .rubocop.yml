@@ -1,0 +1,129 @@
+require: rubocop-rails
+
+Style/StringLiterals:
+  Enabled: false
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0
+  Exclude:
+    - 'db/**/*'
+    - 'test/**/*'
+    - 'spec/**/*'
+    - 'config/**/*'
+    - 'bin/*'
+    - Gemfile
+    - !ruby/regexp /old_and_unused\.rb$/
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/tasks/*'
+    - '**/*.rake'
+    - 'test/**/*.rb'
+    - 'spec/**/*.rb'
+  Max: 10
+
+Style/SymbolProc:
+  Exclude:
+    - 'lib/tasks/*'
+
+Style/SafeNavigation:
+  Exclude:
+    - 'lib/tasks/*'
+
+Lint/UselessAssignment:
+  Exclude:
+    - 'lib/tasks/*'
+
+Naming/RescuedExceptionsVariableName:
+  Exclude:
+    - 'lib/tasks/*'
+
+Style/ConditionalAssignment:
+  Exclude:
+    - 'lib/tasks/*'
+
+Style/Documentation:
+  Enabled: false
+
+Naming/PredicateName:
+  Enabled: false
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  Enabled: true
+
+Style/AsciiComments:
+  Enabled: false
+
+Layout/FirstArgumentIndentation:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/EmptyCaseCondition:
+  Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+Style/AccessModifierDeclarations:
+  EnforcedStyle: inline
+  Enabled: false
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Layout/FirstHashElementIndentation:
+  Exclude:
+    - 'spec/**/*'
+
+Layout/FirstArrayElementIndentation:
+  Exclude:
+    - 'spec/**/*'
+
+Layout/ClosingParenthesisIndentation:
+  Exclude:
+    - 'spec/**/*'
+
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
+
+Metrics/MethodLength:
+  Max: 50
+
+Layout/LineLength:
+  Max: 300
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: percent
+  MinSize: 14
+
+Layout/EndOfLine:
+  Enabled: False
+
+Metrics/CyclomaticComplexity:
+  Max: 20
+
+Metrics/ParameterLists:
+  Max: 4
+
+Style/OpenStructUse:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 100
