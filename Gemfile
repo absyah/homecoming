@@ -45,6 +45,7 @@ group :development, :test do
 
   # rspec and testing purposes
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
   gem 'shoulda-matchers', require: false
 end
 
