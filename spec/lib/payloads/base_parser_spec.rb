@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PayloadParser do
+RSpec.describe Payload::BaseParser do
   describe ".permitted_params" do
     context "when given a JSON with reservation_code key" do
       let(:json) do
@@ -28,7 +28,7 @@ RSpec.describe PayloadParser do
       end
 
       it "returns the permitted parameters for V1Payload" do
-        expect(described_class.permitted_params(json)).to eq(Payloads::V1Payload::PARAMS)
+        expect(described_class.permitted_params(json)).to eq(Payload::V1Parser::PERMITTED_PARAMS)
       end
     end
 
@@ -64,7 +64,7 @@ RSpec.describe PayloadParser do
       end
 
       it "returns the permitted parameters for V2Payload" do
-        expect(described_class.permitted_params(json)).to eq(Payloads::V2Payload::PARAMS)
+        expect(described_class.permitted_params(json)).to eq(Payload::V2Parser::PERMITTED_PARAMS)
       end
     end
 
@@ -73,7 +73,7 @@ RSpec.describe PayloadParser do
 
       it "raises a PayloadError" do
         expect { described_class.permitted_params(json) }
-          .to raise_error(PayloadParser::PayloadError, "Unregistered payload format")
+          .to raise_error(Payload::BaseParser::PayloadError, "Unregistered payload format")
       end
     end
   end

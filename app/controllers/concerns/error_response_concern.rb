@@ -14,7 +14,7 @@ module ErrorResponseConcern
       json_response({ message: e.message }, :unprocessable_entity)
     end
 
-    rescue_from PayloadParser::PayloadError do |e|
+    rescue_from Payload::BaseParser::PayloadError do |e|
       json_response({ message: e.message }, :bad_request)
     end
   end

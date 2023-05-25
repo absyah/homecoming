@@ -24,7 +24,7 @@ Metrics/BlockLength:
     - '**/*.rake'
     - 'test/**/*.rb'
     - 'spec/**/*.rb'
-  Max: 10
+  Max: 15
 
 Style/SymbolProc:
   Exclude:

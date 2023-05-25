@@ -1,6 +1,6 @@
-module Payloads
-  module V1Payload
-    PARAMS = [
+module Payload
+  class V1Parser
+    PERMITTED_PARAMS = [
       :reservation_code,
       :start_date,
       :end_date,

@@ -1,6 +1,6 @@
-module Payloads
-  module V2Payload
-    PARAMS = {
+module Payload
+  class V2Parser < BaseParser
+    PERMITTED_PARAMS = {
       reservation: [
         :code,
         :start_date,
