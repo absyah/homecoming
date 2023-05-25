@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
-	include ReservationValidation
+  include ReservationValidation
 
   belongs_to :guest
 end

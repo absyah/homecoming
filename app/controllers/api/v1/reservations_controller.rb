@@ -3,7 +3,7 @@ module Api
     class ReservationsController < Api::BaseController
       # curl -X POST http://localhost:3000/api/v1/reservations
       def create_or_update
-        render json: { ping: 'pong' }
+        json_response({ ping: 'pong' })
       end
     end
   end

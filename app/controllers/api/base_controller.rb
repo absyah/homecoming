@@ -1,3 +1,5 @@
 module Api
-  class BaseController < ApplicationController; end
+  class BaseController < ApplicationController
+    include ResponseConcern
+  end
 end
