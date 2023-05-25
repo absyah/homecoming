@@ -1,3 +1,5 @@
 class Guest < ApplicationRecord
-  has_many :reservations
+  include GuestValidation
+
+  has_many :reservations, dependent: :nullify
 end
