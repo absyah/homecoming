@@ -23,16 +23,21 @@ class ReservationBookService
   private
 
   def guest_params
-    { email: "ardian@gmail.com" }
+    payload_parser.guest_params
   end
 
   def reservation_params
-    { reservation_code: "ABCDEF", status: 'accepted' }
+    payload_parser.reservation_params
   end
 
   def do_booking!(guest, reservation)
     reservation.guest = guest
     reservation.save!
     reservation
+  end
+
+  def payload_parser
+    # TODO: detect parser usage
+    @payload_parser ||= Payload::V2Parser.new(booking_params)
   end
 end
