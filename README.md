@@ -37,6 +37,14 @@ git clone git@github.com:absyah/homecoming.git
 
 Create or update reservation based on the reservation code and guest email address.
 
+#### _Sample Request_
+
+For the payload, please find *payload1.json* or *payload2.json* JSON file in the application root directory.
+
+```
+curl -X POST -H "Content-Type: application/json" -d @payload2.json http://localhost:3000/api/v1/reservations
+```
+
 #### Response Payload Data Attributes
 
 #### _Reservation Object_
