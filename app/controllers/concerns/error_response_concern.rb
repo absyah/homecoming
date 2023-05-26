@@ -21,5 +21,9 @@ module ErrorResponseConcern
     rescue_from ActionController::UnpermittedParameters do |e|
       json_response({ message: e.message }, :bad_request)
     end
+
+    rescue_from ActionDispatch::Http::Parameters::ParseError do |e|
+      json_response({ message: e.message }, :bad_request)
+    end
   end
 end
