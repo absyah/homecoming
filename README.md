@@ -209,3 +209,17 @@ Error response consists of json with `message` attribute.
     }
 }
 ```
+
+## Adding New Request Payload
+
+This application has the capability to handle multiple forms of reservation payloads, currently supporting Payload1 and Payload2. If there is a need to incorporate another payload, you can follow these steps:
+
+1. Navigate to the *lib/payload* directory.
+
+2. Create a new payload parser file, such as `v3_parser.rb`.
+
+3. In this new file, register the attributes specific to the new payload. This is done by defining a `PERMITTED_PARAMS` constant and including the attributes of the new payload that you want to allow.
+
+4. Map the attributes of the new payload to the corresponding attributes in the `Reservation` and `Guest` models.
+
+5. Modify the condition in the *lib/payload/base_parser.rb* file to utilize the `V3Parser` when encountering the new payload.
