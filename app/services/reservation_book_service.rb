@@ -37,7 +37,6 @@ class ReservationBookService
   end
 
   def payload_parser
-    # TODO: detect parser usage
-    @payload_parser ||= Payload::V2Parser.new(booking_params)
+    @payload_parser ||= Payload::BaseParser.new(booking_params).build
   end
 end
