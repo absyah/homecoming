@@ -4,7 +4,7 @@ module Api
       # curl -X POST http://localhost:3000/api/v1/reservations
       def create_or_update
         reservation_book = ReservationBookService.new(permitted_params).call
-        json_response(reservation_book.as_json(include: { guest: {} }))
+        json_response(reservation_book)
       end
 
       private

@@ -10,13 +10,13 @@ class ReservationBookService
 
   def call
     ActiveRecord::Base.transaction do
-      guest = GuestService.new(guest_params).call
+      GuestService.new(guest, guest_params).call
       raise ReservationBookService::MissingGuest, guest.errors.full_messages if guest.errors.any?
 
-      reservation = ReservationService.new(reservation_params).call
+      ReservationService.new(reservation, reservation_params).call
       raise ReservationBookService::MissingReservation, reservation.errors.full_messages if reservation.errors.any?
 
-      do_booking!(guest, reservation)
+      reservation.as_json(include: { guest: {} })
     end
   end
 
@@ -30,13 +30,15 @@ class ReservationBookService
     payload_parser.reservation_params
   end
 
-  def do_booking!(guest, reservation)
-    reservation.guest = guest
-    reservation.save!
-    reservation
-  end
-
   def payload_parser
     @payload_parser ||= Payload::BaseParser.new(booking_params).build
+  end
+
+  def guest
+    @guest ||= Guest.find_or_initialize_by(email: guest_params[:email])
+  end
+
+  def reservation
+    @reservation ||= guest.reservations.find_or_initialize_by(reservation_code: reservation_params[:reservation_code])
   end
 end
