@@ -17,5 +17,9 @@ module ErrorResponseConcern
     rescue_from Payload::BaseParser::PayloadError do |e|
       json_response({ message: e.message }, :bad_request)
     end
+
+    rescue_from ActionController::UnpermittedParameters do |e|
+      json_response({ message: e.message }, :bad_request)
+    end
   end
 end
